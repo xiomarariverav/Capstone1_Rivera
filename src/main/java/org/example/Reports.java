@@ -12,6 +12,7 @@ public class Reports {
                 .thenComparing(Transaction::getTime)
                 .reversed());
     }
+
     //this method shows all transactions that happened this month so far,
     // starting from the 1st up to today(newest ones first)
     public static void monthToDate(List<Transaction> list) {
@@ -40,12 +41,13 @@ public class Reports {
         for (Transaction t : list) {
             if (!t.getDate().isBefore(start) && !t.getDate().isAfter(end)) {
 
-            // if (t.getDate().isAfter(start) && t.getDate().isBefore(end)) { this would not work bc it misses transactions on the first (isAfter) and last day
-                    System.out.println(t);
-                }
+                // if (t.getDate().isAfter(start) && t.getDate().isBefore(end)) { this would not work bc it misses transactions on the first (isAfter) and last day
+                System.out.println(t);
             }
         }
-        //shows all transactions from January 1st of the current year up to today(newest ones first)
+    }
+
+    //shows all transactions from January 1st of the current year up to today(newest ones first)
     public static void yearToDate(List<Transaction> list) {
 
         sortNewestFirst(list);
@@ -58,6 +60,7 @@ public class Reports {
             }
         }
     }
+
     // Displays all transactions that occurred last year(newest ones first)
     public static void previousYear(List<Transaction> list) {
 
@@ -65,21 +68,26 @@ public class Reports {
 
         int lastYear = LocalDate.now().minusYears(1).getYear();
 
+        //Checks if that year matches lastYear
         for (Transaction t : list) {
             if (t.getDate().getYear() == lastYear) {
                 System.out.println(t);
             }
         }
     }
-    public static void searchByVendor(List<Transaction> list, String vendor) {
 
+    public static void searchByVendor(List<Transaction> list, String vendor) {
         sortNewestFirst(list);
 
+// using toLowerCase() bc it checks for a partial match, equalsIgnoreCase only checks for exact matches
+        String search = vendor.toLowerCase();
+
         for (Transaction t : list) {
-            if (t.getVendor().toLowerCase().contains(vendor.toLowerCase())) {
+            if (t.getVendor().toLowerCase().contains(search)) {
                 System.out.println(t);
             }
         }
     }
 }
+
 

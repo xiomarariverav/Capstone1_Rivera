@@ -18,7 +18,7 @@ public class UserInterface {
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
 
-            String choice = scanner.nextLine().trim().toUpperCase();
+            String choice = scanner.nextLine().toUpperCase();
 
             switch (choice) {
 
@@ -61,18 +61,18 @@ public class UserInterface {
         double amount = readDouble("Amount: ");
 
         System.out.print("Description: ");
-        String desc = scanner.nextLine();
+        String description = scanner.nextLine();
 
         System.out.print("Vendor: ");
         String vendor = scanner.nextLine();
 
-        AccountService.makePayment(amount, desc, vendor);
+        AccountService.makePayment(amount, description, vendor);
     }
 
     private static void ledgerScreen() {
         while (true) {
 
-            transactions = FileManager.getTransaction(); // ALWAYS FRESH DATA
+            transactions = FileManager.getTransaction();
 
             System.out.println("\n--- LEDGER ---");
             System.out.println("A) All");
@@ -81,7 +81,7 @@ public class UserInterface {
             System.out.println("R) Reports");
             System.out.println("H) Home");
 
-            String choice = scanner.nextLine().trim().toUpperCase();
+            String choice = scanner.nextLine().toUpperCase();
 
             switch (choice) {
 
@@ -106,7 +106,6 @@ public class UserInterface {
 
                 default:
                     System.out.println("Invalid option.");
-                    System.out.println("Invalid option.");
             }
         }
     }
@@ -123,7 +122,7 @@ public class UserInterface {
             System.out.println("5) Search by Vendor");
             System.out.println("0) Back");
 
-            String choice = scanner.nextLine().trim();
+            String choice = scanner.nextLine();
 
             switch (choice) {
 
@@ -156,12 +155,13 @@ public class UserInterface {
                     System.out.println("Invalid option.");
             }
         }
-    } private static double readDouble(String prompt) {
+    } private static double readDouble(String amount) {
         while (true) {
             try {
-                System.out.print(prompt);
+                System.out.print(amount);
                 return Double.parseDouble(scanner.nextLine());
-            } catch (NumberFormatException e) {
+            }
+            catch (NumberFormatException e) {
                 System.out.println("Invalid number. Try again.");
             }
         }
