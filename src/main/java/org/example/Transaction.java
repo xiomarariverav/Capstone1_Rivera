@@ -3,7 +3,7 @@ package org.example;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-//(date|time|description|vendor|amount
+//(date|time|description|vendor|amount)
 public class Transaction {
 
     private LocalDate date;
