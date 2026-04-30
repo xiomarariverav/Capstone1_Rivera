@@ -1,10 +1,11 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
 
-public class UserInterface {
+public class UserInterface{
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> transactions;
 
@@ -121,6 +122,7 @@ public class UserInterface {
             System.out.println("3) Year To Date");
             System.out.println("4) Previous Year");
             System.out.println("5) Search by Vendor");
+            System.out.println("6) Custom Search");
             System.out.println("0) Back");
 
             String choice = scanner.nextLine();
@@ -149,6 +151,10 @@ public class UserInterface {
                     Reports.searchByVendor(transactions, vendor);
                     break;
 
+                case "6":
+                    customSearchPrompt();
+                    break;
+
                 case "0":
                     return;
 
@@ -157,13 +163,62 @@ public class UserInterface {
             }
         }
     }
+
+    private static void customSearchPrompt() {
+
+        // Start Date
+        System.out.print("Start Date (yyyy-mm-dd) or press ENTER to skip): ");
+        String startInput = scanner.nextLine().trim();
+        LocalDate startDate;
+
+        if (startInput.isEmpty()) {  startDate = null;
+        } else {
+            startDate = LocalDate.parse(startInput);
+        }
+
+        // End Date
+        System.out.print("End Date (yyyy-mm-dd) or press ENTER to skip: ");
+        String endInput = scanner.nextLine().trim();
+        LocalDate endDate;
+
+        if (endInput.isEmpty()) { endDate = null;
+        } else {
+            endDate = LocalDate.parse(endInput);
+        }
+
+        // Description
+        System.out.print("Description or press ENTER to skip): ");
+        String description = scanner.nextLine().trim();
+        if (description.isEmpty()) { description = null;
+        }
+
+        // Vendor
+        System.out.print("Vendor or press ENTER to skip): ");
+        String vendor = scanner.nextLine().trim();
+        if (vendor.isEmpty()) {
+            vendor = null; }
+
+        // Amount
+        System.out.print("Amount or press ENTER to skip): ");
+        String amountInput = scanner.nextLine().trim();
+        Double amount;
+
+        if (amountInput.isEmpty()) { amount = null;
+        }
+        else {
+            amount = Double.parseDouble(amountInput);
+        }
+
+        // Run search
+        Reports.customSearch(transactions, startDate, endDate, description, vendor, amount);
+    }
+
     private static double readDouble(String amount) {
         while (true) {
             try {
                 System.out.print(amount);
                 return Double.parseDouble(scanner.nextLine());
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Invalid number. Try again.");
             }
         }

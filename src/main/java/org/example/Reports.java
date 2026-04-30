@@ -88,6 +88,51 @@ public class Reports {
             }
         }
     }
+    public static void customSearch(List<Transaction> list, LocalDate startDate, LocalDate endDate, String description, String vendor, Double amount) {
+
+        sortNewestFirst(list);
+
+        for (Transaction t : list) {
+
+            // Start Date filter
+            // If user entered a startDate AND this transaction happened BEFORE it, skip this transaction
+            if (startDate != null && t.getDate().isBefore(startDate)) {
+                continue;
+            }
+
+            // End Date filter
+            //If user entered an endDate AND this transaction happened AFTER it, skip this transaction
+            if (endDate != null && t.getDate().isAfter(endDate)) {
+                continue;
+            }
+
+            // Description filter
+            //If user entered a description AND this transaction does NOT contain it, skip it
+            if (description != null && !description.isEmpty()) {
+                if (!t.getDescription().toLowerCase().contains(description.toLowerCase())) {
+                    continue;
+                }
+            }
+
+            // Vendor filter
+            // If user entered a vendor AND this transaction vendor does NOT match (partial match, skip it
+            if (vendor != null && !vendor.isEmpty()) {
+                if (!t.getVendor().toLowerCase().contains(vendor.toLowerCase())) {
+                    continue;
+                }
+            }
+
+            // Amount filter
+            // If user entered an amount AND it does NOT match this transaction's amount, skip it
+            if (amount != null && t.getAmount() != amount) {
+                continue;
+            }
+
+            // If transaction passed ALL filters, print it
+            System.out.println(t);
+        }
+    }
 }
+
 
 
