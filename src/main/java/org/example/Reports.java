@@ -80,7 +80,7 @@ public class Reports {
         sortNewestFirst(list);
 
 // using toLowerCase() bc it checks for a partial match, equalsIgnoreCase only checks for exact matches
-        String search = vendor.toLowerCase();
+        String search = vendor.trim().toLowerCase();
 
         for (Transaction t : list) {
             if (t.getVendor().toLowerCase().contains(search)) {

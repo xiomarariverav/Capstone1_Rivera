@@ -18,8 +18,7 @@ public class UserInterface {
             System.out.println("L) Ledger");
             System.out.println("X) Exit");
 
-            String choice = scanner.nextLine().toUpperCase();
-
+            String choice = scanner.nextLine().toUpperCase().trim();
             switch (choice) {
 
                 case "D":
@@ -44,6 +43,7 @@ public class UserInterface {
         }
     }
 
+    // Prompts user for deposit details
     private static void addDeposit() {
         double amount = readDouble("Amount: ");
 
@@ -53,7 +53,8 @@ public class UserInterface {
         System.out.print("Vendor: ");
         String vendor = scanner.nextLine();
 
-        AccountService.addDeposit(amount, desc, vendor);
+        // this method creates the Transaction and writes it to the csv
+        AccountService.addDeposit(amount, desc.trim(), vendor.trim());
     }
 
 
@@ -81,7 +82,7 @@ public class UserInterface {
             System.out.println("R) Reports");
             System.out.println("H) Home");
 
-            String choice = scanner.nextLine().toUpperCase();
+            String choice = scanner.nextLine().toUpperCase().trim();
 
             switch (choice) {
 
@@ -155,7 +156,8 @@ public class UserInterface {
                     System.out.println("Invalid option.");
             }
         }
-    } private static double readDouble(String amount) {
+    }
+    private static double readDouble(String amount) {
         while (true) {
             try {
                 System.out.print(amount);
