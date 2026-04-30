@@ -9,15 +9,24 @@ public class UserInterface{
     static Scanner scanner = new Scanner(System.in);
     static List<Transaction> transactions;
 
+    public static void showSplashScreen() {
+        System.out.println(Colors.CYAN + "=====================================");
+        System.out.println(Colors.CYAN + "         BOUTIQUE BOOKS");
+        System.out.println(Colors.CYAN + "      Your Fashion Store Ledger");
+        System.out.println(Colors.CYAN + "=====================================");
+        System.out.println("\nWelcome back! Press ENTER to continue..." + Colors.RESET);
+        scanner.nextLine();
+    }
+
     public static void homeScreen() {
 
         while (true) {
 
-            System.out.println("\n--- HOME ---");
-            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment");
-            System.out.println("L) Ledger");
-            System.out.println("X) Exit");
+            System.out.println(Colors.CYAN + "\n--- BOUTIQUE BOOKS | MAIN MENU ---");
+            System.out.println(Colors.PINK + "D) " + "Record a Sale");
+            System.out.println(Colors.PINK+ "P) " + "Record a Purchase");
+            System.out.println(Colors.PINK + "L) " + "Ledger");
+            System.out.println(Colors.PINK+ "X) " + "Exit"+ Colors.RESET);
 
             String choice = scanner.nextLine().toUpperCase().trim();
             switch (choice) {
@@ -35,20 +44,20 @@ public class UserInterface{
                     break;
 
                 case "X":
-                    System.out.println("Goodbye!");
+                    System.out.println(Colors.CYAN + "Thank you for using Boutique Books. Goodbye!" + Colors.RESET);
                     return;
 
                 default:
-                    System.out.println("Invalid option.");
+                    System.out.println(Colors.RED + "Invalid option. Please try again." + Colors.RESET);
             }
         }
     }
 
     // Prompts user for deposit details
     private static void addDeposit() {
-        double amount = readDouble("Amount: ");
+        double amount = readDouble("Sale Amount: $");
 
-        System.out.print("Description: ");
+        System.out.print("Item Description: ");
         String desc = scanner.nextLine();
 
         System.out.print("Vendor: ");
@@ -56,19 +65,21 @@ public class UserInterface{
 
         // this method creates the Transaction and writes it to the csv
         AccountService.addDeposit(amount, desc.trim(), vendor.trim());
+        System.out.println("Sale recorded successfully!"); // was "Deposit Added."
     }
 
 
     private static void makePayment(){
-        double amount = readDouble("Amount: ");
+        double amount = readDouble("Purchase Amount: $");
 
-        System.out.print("Description: ");
+        System.out.print("Item Description: ");
         String description = scanner.nextLine();
 
         System.out.print("Vendor: ");
         String vendor = scanner.nextLine();
 
         AccountService.makePayment(amount, description, vendor);
+        System.out.println("Purchase recorded successfully!");// was "Payment added."
     }
 
     private static void ledgerScreen() {
@@ -76,12 +87,12 @@ public class UserInterface{
 
             transactions = FileManager.getTransaction();
 
-            System.out.println("\n--- LEDGER ---");
-            System.out.println("A) All");
-            System.out.println("D) Deposits");
-            System.out.println("P) Payments");
-            System.out.println("R) Reports");
-            System.out.println("H) Home");
+            System.out.println(Colors.CYAN + "\n--- BOUTIQUE BOOKS | LEDGER ---" );
+            System.out.println(Colors.PURPLE + "A) " + "All");
+            System.out.println(Colors.PURPLE + "D) " + "Sales");
+            System.out.println(Colors.PURPLE + "P) " + "Purchases");
+            System.out.println(Colors.PURPLE + "R) " +  "Reports");
+            System.out.println(Colors.PURPLE + "H) " + "Home"+ Colors.RESET);
 
             String choice = scanner.nextLine().toUpperCase().trim();
 
@@ -116,15 +127,14 @@ public class UserInterface{
 
         while (true) {
 
-            System.out.println("\n--- REPORTS ---");
-            System.out.println("1) Month To Date");
-            System.out.println("2) Previous Month");
-            System.out.println("3) Year To Date");
-            System.out.println("4) Previous Year");
-            System.out.println("5) Search by Vendor");
-            System.out.println("6) Custom Search");
-            System.out.println("0) Back");
-
+            System.out.println(Colors.CYAN + "\n--- BOUTIQUE BOOKS | REPORTS ---" );
+            System.out.println(Colors.GREEN + "1) " + "Month To Date");
+            System.out.println(Colors.GREEN + "2) " + "Previous Month");
+            System.out.println(Colors.GREEN + "3) " + "Year To Date");
+            System.out.println(Colors.GREEN + "4) " + "Previous Year");
+            System.out.println(Colors.GREEN + "5) " +  "Search by Vendor");
+            System.out.println(Colors.GREEN + "6) " + "Custom Search");
+            System.out.println(Colors.GREEN + "0) " + "Back" + Colors.RESET);
             String choice = scanner.nextLine();
 
             switch (choice) {

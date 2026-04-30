@@ -1,23 +1,20 @@
-2025-01-08|11:30:00|software license|Microsoft|-149.99
-2025-02-14|13:14:22|refund adjustment|Amazon|45.00
-2025-03-03|17:45:10|keyboard purchase|Amazon|-89.99
-2025-03-28|08:25:33|invoice 3002 paid|Client C|2100.00
-2025-04-02|10:05:44|coffee supplies|Starbucks|-34.25
-2025-12-15|15:00:00|year-end payment|Acme Corp|2800.00
-2026-01-05|09:15:22|office supplies|Staples|-60.00
-2026-01-20|14:40:10|client payment|Acme Corp|3000.00
-2026-02-10|11:22:45|software subscription|Adobe|-30.00
-2026-02-22|15:05:33|team lunch|Chipotle|-80.00
-2026-03-01|08:00:00|invoice 4001 paid|Client B|1600.00
-2026-03-18|16:10:10|web hosting|GoDaddy|-16.99
-2026-03-25|12:30:00|online order|Amazon|-120.00
-2026-04-02|10:45:50|cloud storage|Google|-13.99
-2026-04-05|09:10:10|client payment|Acme Corp|3200.00
-2026-04-10|13:33:12|office chairs|IKEA|-450.00
-2026-04-12|10:20:00|software license|Microsoft|-150.00
-2026-04-18|15:18:19|consulting income|Freelancer|900.00
-2026-04-29|18:26:48.158537700|test2|test2|100.0
-2026-04-29|18:27:18.600368900|test3|test3|100.0
-2026-04-29|18:33:17.721906|test4|test4|100.0
-2026-04-29|18:40:22.001282400|addDeposit|deposit|111.0
-2026-04-29|18:40:47.898358600|payment|pay|-222.0
+2025-01-10|10:00:00|winter collection restock|Zara Wholesale|-2500.00
+2025-02-14|11:30:00|valentines sale|Walk-in Customer|320.00
+2025-03-05|09:45:00|spring dresses restock|Fashion Nova Wholesale|-1800.00
+2025-03-20|14:00:00|dress sale|Walk-in Customer|180.00
+2025-04-01|10:15:00|accessories restock|H&M Wholesale|-600.00
+2025-12-26|13:00:00|holiday sale earnings|Walk-in Customer|4200.00
+2026-01-03|09:00:00|new year restock|Zara Wholesale|-3100.00
+2026-01-18|15:30:00|handbag sale|Online Customer|250.00
+2026-02-05|11:00:00|shoes restock|Steve Madden Wholesale|-900.00
+2026-02-20|14:45:00|shoe sale|Walk-in Customer|175.00
+2026-03-01|10:00:00|spring restock|Fashion Nova Wholesale|-2200.00
+2026-03-15|13:15:00|jacket sale|Online Customer|320.00
+2026-03-28|11:30:00|sunglasses restock|accessories vendor|-400.00
+2026-04-02|09:30:00|earrings sale|Walk-in Customer|85.00
+2026-04-08|14:00:00|summer collection restock|Zara Wholesale|-2800.00
+2026-04-15|10:45:00|dress sale|Online Customer|210.00
+2026-04-20|13:00:00|handbag sale|Walk-in Customer|310.00
+2026-04-25|11:15:00|blouse sale|Online Customer|95.00
+2026-04-28|15:00:00|sandals restock|Steve Madden Wholesale|-750.00
+2026-04-29|09:30:00|skirt sale|Walk-in Customer|120.00

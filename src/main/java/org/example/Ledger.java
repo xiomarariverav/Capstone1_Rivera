@@ -18,7 +18,7 @@ public class Ledger {
         for (Transaction t : list) {
             printTransaction(t);
         }
-}
+    }
 
     // Sorts transactions from newest to oldest and prints only the ones with positive amounts/deposits (> 0)
     public static void showDeposits(List<Transaction> list) {
@@ -50,8 +50,8 @@ public class Ledger {
             System.out.println("No payments found.");
         }
     }
-     private static void printTransaction (Transaction t){
-            System.out.println(t.getDate() + " " + t.getTime() + " | " + t.getDescription() + " | "
-                    + t.getVendor() + " | $" + String.format("%.2f", t.getAmount()));
-        }
+    private static void printTransaction (Transaction t){
+        System.out.println(t.getDate() + " " + t.getTime() + " | " + t.getDescription() + " | "
+                + t.getVendor() + " | $" + String.format("%.2f", t.getAmount()));
     }
+}

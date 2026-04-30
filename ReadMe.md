@@ -1,24 +1,21 @@
-# Accounting CLI Application
+# Boutique Books
 
-## Description
-This is a command-line accounting application that allows users to:
-- Add deposits
-- Make payments (debits)
-- View transaction history
-- Generate reports (e.g., year-to-date)
-
-The data is stored in a pipe-delimited CSV file.
-
-## How to Run
-1. Open the project in IntelliJ
-2. Navigate to the `Main` class
-3. Click the green run button or press Shift + F10
+Boutique Books is a console-based ledger application for managing fashion store finances.
+It allows users to record sales and purchases, view transaction history, and run reports.
 
 ## Features
-- Add deposits and payments
-- Store transactions in a file
-- Filter transactions by date
-- Year-to-date reporting
+- Record sales and purchases saved to a CSV file
+- View all transactions, deposits only, or payments only
+- Reports: Month to Date, Previous Month, Year to Date, Previous Year, Search by Vendor
+- Custom search by date range, description, vendor, and amount
 
-## File Format
-Transactions are stored like this:
+## How to Run
+
+1. Make sure you have Java installed (Java 17 or higher recommended)
+2. Clone this repository
+3. Open the project in IntelliJ IDEA
+4. Run the `Main.java` file inside `src/main/java/org/example/`
+
+## Technologies Used
+- Java
+- File I/O (CSV)
