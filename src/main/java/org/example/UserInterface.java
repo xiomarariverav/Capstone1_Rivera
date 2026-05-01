@@ -226,6 +226,7 @@ public class UserInterface{
         Reports.customSearch(transactions, startDate, endDate, description, vendor, amount);
     }
 
+    // helper method
     private static double readDouble(String amount) {
         while (true) {
             try {

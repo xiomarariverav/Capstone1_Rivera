@@ -54,4 +54,5 @@ public class Ledger {
         System.out.println(t.getDate() + " " + t.getTime() + " | " + t.getDescription() + " | "
                 + t.getVendor() + " | $" + String.format("%.2f", t.getAmount()));
     }
+
 }
