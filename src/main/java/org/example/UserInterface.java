@@ -179,44 +179,47 @@ public class UserInterface{
         // Start Date
         System.out.print("Start Date (yyyy-mm-dd) or press ENTER to skip): ");
         String startInput = scanner.nextLine().trim();
-        LocalDate startDate;
-
-        if (startInput.isEmpty()) {  startDate = null;
-        } else {
-            startDate = LocalDate.parse(startInput);
+        LocalDate startDate = null;
+        if (!startInput.isEmpty()) {
+            try {
+                startDate = LocalDate.parse(startInput);
+            } catch (Exception e) {
+                System.out.println(Colors.RED + "Invalid start date, skipping." + Colors.RESET);
+            }
         }
 
         // End Date
         System.out.print("End Date (yyyy-mm-dd) or press ENTER to skip: ");
         String endInput = scanner.nextLine().trim();
-        LocalDate endDate;
-
-        if (endInput.isEmpty()) { endDate = null;
-        } else {
-            endDate = LocalDate.parse(endInput);
+        LocalDate endDate = null;
+        if (!endInput.isEmpty()) {
+            try {
+                endDate = LocalDate.parse(endInput);}
+            catch (Exception e) {
+                System.out.println(Colors.RED + "Invalid end date, skipping." + Colors.RESET);
+            }
         }
 
         // Description
         System.out.print("Description or press ENTER to skip): ");
         String description = scanner.nextLine().trim();
-        if (description.isEmpty()) { description = null;
-        }
+        if (description.isEmpty()) { description = null;}
 
         // Vendor
         System.out.print("Vendor or press ENTER to skip): ");
         String vendor = scanner.nextLine().trim();
-        if (vendor.isEmpty()) {
-            vendor = null; }
+        if (vendor.isEmpty()) { vendor = null; }
 
         // Amount
         System.out.print("Amount or press ENTER to skip): ");
         String amountInput = scanner.nextLine().trim();
-        Double amount;
-
-        if (amountInput.isEmpty()) { amount = null;
-        }
-        else {
-            amount = Double.parseDouble(amountInput);
+        Double amount = null;
+        if (!amountInput.isEmpty()) {
+            try {
+                amount = Double.parseDouble(amountInput);
+            } catch (Exception e) {
+                System.out.println(Colors.RED + "Invalid amount, skipping." + Colors.RESET);
+            }
         }
 
         // Run search
